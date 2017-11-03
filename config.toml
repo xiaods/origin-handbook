@@ -5,7 +5,7 @@ DefaultContentLanguage = "zh-cn"
 title = "Docdock"
 theme = "docdock"
 # themesdir = "../.."
-relativeURLS=true
+relativeURLS = true
 
 [params]
 editURL = "https://github.com/vjeantet/hugo-theme-docdock/edit/master/exampleSite/content/"
