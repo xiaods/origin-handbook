@@ -1,3 +1,9 @@
++++
+title = "Best practise for origin"
+description = ""
++++
+
+
 # Origin开发者实践手册
 ![logo](/index/openshift-origin-logo.png)
 
