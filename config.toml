@@ -1,6 +1,6 @@
 baseURL = "/"
-languageCode = "en-us"
-DefaultContentLanguage = "en"
+languageCode = "zh-cn"
+DefaultContentLanguage = "zh-cn"
 
 title = "Docdock"
 theme = "docdock"
@@ -24,19 +24,8 @@ home = [ "HTML", "RSS", "JSON"]
 pre = "<h3>More</h3>"
 name = "<i class='fa fa-github'></i> Github repo"
 identifier = "ds"
-url = "https://github.com/vjeantet/hugo-theme-docdock"
+url = "https://github.com/xiaods/origin-handbook"
 weight = 10
-
-[[menu.shortcuts]]
-name = "<i class='fa fa-camera'></i> Showcases"
-url = "/showcase"
-weight = 11
-
-[[menu.shortcuts]]
-name = "<i class='fa fa-bookmark'></i> Hugo Documentation"
-identifier = "hugodoc"
-url = "https://gohugo.io/"
-weight = 20
 
 [[menu.shortcuts]]
 name = "<i class='fa fa-bullhorn'></i> Credits"
