@@ -3,17 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/_header/</loc>
-    <lastmod>2017-04-24T18:36:24+02:00</lastmod>
+    <loc>/getting-start/</loc>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2017-04-24T18:36:24+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/credits/</loc>
   </url>
   
   <url>
@@ -24,6 +18,14 @@
   <url>
     <loc>/tags/</loc>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/_header/</loc>
+  </url>
+  
+  <url>
+    <loc>/credits/</loc>
   </url>
   
 </urlset>

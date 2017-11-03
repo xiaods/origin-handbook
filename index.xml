@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Docdock</title>
+    <title>Best practise for origin on Docdock</title>
     <link>/</link>
-    <description>Recent content on Docdock</description>
+    <description>Recent content in Best practise for origin on Docdock</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 24 Apr 2017 18:36:24 +0200</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,19 +13,20 @@
     <item>
       <title>header</title>
       <link>/_header/</link>
-      <pubDate>Mon, 24 Apr 2017 18:36:24 +0200</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/_header/</guid>
       <description>Origin开发者实践手册</description>
     </item>
     
     <item>
-      <title></title>
+      <title>维护者</title>
       <link>/credits/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/credits/</guid>
-      <description> 维护者：Tommy Xiao/ @xds2000(twitter) </description>
+      <description>Origin的社区需要大量实践才能汇聚更多人气，所以还请大家多PR，贡献自己的实践内容。
+ Tommy Xiao/ @xds2000(twitter)  </description>
     </item>
     
   </channel>

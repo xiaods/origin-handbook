@@ -1,24 +1,17 @@
 [
 {
-	"uri": "/_header/",
-	"title": "header",
+	"uri": "/getting-start/",
+	"title": "Origin本地环境创建 for Mac",
 	"tags": [],
 	"description": "",
-	"content": "Origin开发者实践手册\n"
+	"content": " 环境需要  下载origin源码,并参考HACKING.md文档在本地搭建开发环境  $ hack/env ${COMMAND}   注意：hack/env会先启动一个centos环境并挂载源码，然后构建源码并生成可执行文件。\n $ hack/env make release $ hack/env hack/build-base-images.sh $ hack/env hack/build-local-images.py   启动cluster  $ oc cluster up --version=latest  "
 },
 {
 	"uri": "/",
-	"title": "",
+	"title": "Best practise for origin",
 	"tags": [],
 	"description": "",
 	"content": " Origin开发者实践手册 Openshift Origin是业界优秀的Kubernetes企业级发行版本，大量开发者以此版本作为学习Kubernetes的实践代码库。所以，建立此手册帮助大家快速实践和应用起此容器集群技术。\nOrigin开发者社区微信号：coderxiao\n"
-},
-{
-	"uri": "/credits/",
-	"title": "",
-	"tags": [],
-	"description": "",
-	"content": " 维护者：Tommy Xiao/ @xds2000(twitter) "
 },
 {
 	"uri": "/categories/",
@@ -33,4 +26,18 @@
 	"tags": [],
 	"description": "",
 	"content": ""
+},
+{
+	"uri": "/_header/",
+	"title": "header",
+	"tags": [],
+	"description": "",
+	"content": "Origin开发者实践手册\n"
+},
+{
+	"uri": "/credits/",
+	"title": "维护者",
+	"tags": [],
+	"description": "contributors",
+	"content": "Origin的社区需要大量实践才能汇聚更多人气，所以还请大家多PR，贡献自己的实践内容。\n Tommy Xiao/ @xds2000(twitter)  "
 }]
