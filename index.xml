@@ -11,6 +11,23 @@
     
     
     <item>
+      <title>Egress路由器配置方案</title>
+      <link>/best-practice/egress-router-setup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/best-practice/egress-router-setup/</guid>
+      <description>场景需求 使用Egress router当作Proxy服务器，控制集群中只能通过此Proxy访问企业内部受到安全 审计的数据库
+参考技术资料： https://docs.openshift.com/container-platform/3.5/admin_guide/managing_networking.html
+问题 https://github.com/openshift/origin/issues/17421
+解决办法 1、需要手工创建macvlan0设备,设备名称必须为：macvlan0
+ip link add macvlan0 link eth0 type macvlan mode bridge  2、发布egress router镜像Pod文件 但是官方参考资料描述不准确。 必须在POD中加上
+hostNetwork: true  3、如果基础环境是Openstack网络，请注意加上白名单
+neutron port-update $neutron_port_uuid \ --allowed_address_pairs list=true \ type=dict mac_address=&amp;lt;mac_address&amp;gt;,ip_address=&amp;lt;ip_address&amp;gt;  4、原理分析，egress这个镜像里面并没有自动创建macvlan设备，
+https://github.com/openshift/origin/blob/master/images/egress/router/egress-router.sh
+ function setup_network() { # The pod may die and get restarted; only try to add the # address/route/rules if they are not already there. if ! ip route get &amp;quot;${EGRESS_GATEWAY}&amp;quot; | grep -q macvlan0; then ip addr add &amp;quot;${EGRESS_SOURCE}&amp;quot;/32 dev macvlan0 ip link set up dev macvlan0 ip route add &amp;quot;${EGRESS_GATEWAY}&amp;quot;/32 dev macvlan0 ip route del default ip route add default via &amp;quot;${EGRESS_GATEWAY}&amp;quot; dev macvlan0 fi # Update neighbor ARP caches in case another node previously had the IP.</description>
+    </item>
+    
+    <item>
       <title>header</title>
       <link>/_header/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

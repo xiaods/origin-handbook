@@ -7,6 +7,13 @@
 	"content": " 环境需要  下载origin源码,并参考HACKING.md文档在本地搭建开发环境  $ hack/env ${COMMAND}   注意：hack/env会先启动一个centos环境并挂载源码，然后构建源码并生成可执行文件。\n $ hack/env make release $ hack/env hack/build-base-images.sh $ hack/env hack/build-local-images.py   启动cluster  $ oc cluster up --version=latest  "
 },
 {
+	"uri": "/best-practice/",
+	"title": "社区实践清单",
+	"tags": [],
+	"description": "",
+	"content": " 收集社区遇到的各类问题和解决方案 "
+},
+{
 	"uri": "/",
 	"title": "Best practise for origin",
 	"tags": [],
@@ -19,6 +26,13 @@
 	"tags": [],
 	"description": "",
 	"content": ""
+},
+{
+	"uri": "/best-practice/egress-router-setup/",
+	"title": "Egress路由器配置方案",
+	"tags": [],
+	"description": "",
+	"content": " 场景需求 使用Egress router当作Proxy服务器，控制集群中只能通过此Proxy访问企业内部受到安全 审计的数据库\n参考技术资料： https://docs.openshift.com/container-platform/3.5/admin_guide/managing_networking.html\n问题 https://github.com/openshift/origin/issues/17421\n解决办法 1、需要手工创建macvlan0设备,设备名称必须为：macvlan0\nip link add macvlan0 link eth0 type macvlan mode bridge  2、发布egress router镜像Pod文件 但是官方参考资料描述不准确。 必须在POD中加上\nhostNetwork: true  3、如果基础环境是Openstack网络，请注意加上白名单\nneutron port-update $neutron_port_uuid \\ --allowed_address_pairs list=true \\ type=dict mac_address=\u0026lt;mac_address\u0026gt;,ip_address=\u0026lt;ip_address\u0026gt;  4、原理分析，egress这个镜像里面并没有自动创建macvlan设备，\nhttps://github.com/openshift/origin/blob/master/images/egress/router/egress-router.sh\n function setup_network() { # The pod may die and get restarted; only try to add the # address/route/rules if they are not already there. if ! ip route get \u0026quot;${EGRESS_GATEWAY}\u0026quot; | grep -q macvlan0; then ip addr add \u0026quot;${EGRESS_SOURCE}\u0026quot;/32 dev macvlan0 ip link set up dev macvlan0 ip route add \u0026quot;${EGRESS_GATEWAY}\u0026quot;/32 dev macvlan0 ip route del default ip route add default via \u0026quot;${EGRESS_GATEWAY}\u0026quot; dev macvlan0 fi # Update neighbor ARP caches in case another node previously had the IP. (This is # the same code ifup uses.) arping -q -A -c 1 -I macvlan0 \u0026quot;${EGRESS_SOURCE}\u0026quot; ( sleep 2; arping -q -U -c 1 -I macvlan0 \u0026quot;${EGRESS_SOURCE}\u0026quot; || true ) \u0026gt; /dev/null 2\u0026gt;\u0026amp;1 \u0026lt; /dev/null \u0026amp; }  "
 },
 {
 	"uri": "/tags/",
