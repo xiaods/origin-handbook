@@ -29,5 +29,3 @@ $ hack/env hack/build-local-images.py
 $ oc cluster up --version=latest
 ```
 
-
-
